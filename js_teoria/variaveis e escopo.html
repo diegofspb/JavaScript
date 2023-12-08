@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Var Let Const</title>
+</head>
+<body>
+
+    <script>         
+
+        /*        
+            Variável declarada FORA de uma função = ESCOPO GLOBAL.
+            Variável declarada DENTRO de uma função = ESCOPO LOCAL/BLOCO.
+
+            !!!! para melhor entender, tanto var, let ou const são de escopo globais e o que as limitam é:
+
+                ===> o que 'limita' uma 'var' é apenas uma função
+                ===> o que 'limita' const ou let é função ou bloco
+
+            var   => escopo = função /  pode ser alterada
+            let   => escopo = bloco /  pode ser alterada
+            const => escopo = bloco / NÃO pode ser alterada
+        */
+
+        // ############# Exemplo sobre ESCOPO #############
+
+        let z = 3;
+        const g = 5;
+        var t = 1;
+
+        function exemplo(){
+
+            // variável declarada dentro de função = ESCOPO LOCAL
+
+            var x = 10;
+            console.log('var x =',x);
+
+            // exibindo as variáveis com escopo global
+
+            console.log('let z =',z);
+            console.log('const g =',g);
+            console.log('var z =',t);
+
+            // nenhuma variável declarada dentro de uma função tem ESCOPO GLOBAL
+        }
+
+        exemplo();
+        // console.log(x);  se descomentar o código vai dar erro, pois a variável x não existe fora da função exemplo()
+
+
+        // ############# Exemplo sobre BLOCO #############
+
+        if(true){
+            var s = 10; // var só é limitada por função
+            let y = 6; // let ou const são limitadas por função e / ou bloco
+            const o = 44;
+                    
+            console.log('Escopo Bloco var s = ',s);
+            console.log('Escopo Bloco let y = ',y);
+            console.log('Escopo Bloco const o = ',o);
+        }
+        console.log('Escopo Bloco var s = ',s , 'var = escopo função, aqui não é função então escopo = global');
+        // console.log('Escopo Bloco var y = ',y); esta linha apresentará erro, pois let e const = escopo bloco
+        // console.log('Escopo Bloco const o = ',o); também da erro conforme teoria acima
+
+    </script>
+    
+</body>
+</html>
